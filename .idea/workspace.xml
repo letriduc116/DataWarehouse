@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55f9b542-6529-48de-b94c-ce38680cd8af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test_mysql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/importDBStaging.py" beforeDir="false" afterPath="$PROJECT_DIR$/importDBStaging.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +86,8 @@
       <workItem from="1761489252876" duration="17000" />
       <workItem from="1761489784433" duration="35000" />
       <workItem from="1761490351170" duration="25000" />
+      <workItem from="1761490925076" duration="893000" />
+      <workItem from="1761493209749" duration="137000" />
     </task>
     <servers />
   </component>
