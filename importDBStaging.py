@@ -4,12 +4,12 @@ from datetime import datetime
 import os
 import glob
 
-# ==== TỰ ĐỘNG LẤY FILE CSV MỚI NHẤT ====
-folder_path = r"G:\crawl"
-csv_files = glob.glob(os.path.join(folder_path, "bds_*.csv"))
-
-if not csv_files:
-    raise FileNotFoundError(f"Không tìm thấy file CSV nào trong thư mục {folder_path}")
+# # ==== TỰ ĐỘNG LẤY FILE CSV MỚI NHẤT ====
+# folder_path = r"G:\crawl"
+# csv_files = glob.glob(os.path.join(folder_path, "bds_*.csv"))
+#
+# if not csv_files:
+#     raise FileNotFoundError(f"Không tìm thấy file CSV nào trong thư mục {folder_path}")
 
 # ==== TỰ ĐỘNG LẤY FILE CSV MỚI NHẤT ====
 if os.path.exists(r"G:\crawl"):
