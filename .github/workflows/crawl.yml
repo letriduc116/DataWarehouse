@@ -2,8 +2,8 @@ name: Daily Batdongsan Crawler
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # chạy lúc 3h sáng UTC (tức 10h sáng Việt Nam)
-  workflow_dispatch:       # cho phép bạn chạy thủ công nếu muốn
+    - cron: '0 3 * * *'  # chạy lúc 3h sáng UTC (10h sáng VN)
+  workflow_dispatch:       # cho phép chạy thủ công
 
 jobs:
   run:
@@ -18,8 +18,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           playwright install chromium
-
-      - name: Chạy script crawl + import
+          sudo apt-get update
+          sudo apt-get install -y xvfb 
+      - name: Chạy script crawl + import (dùng Xvfb để giả lập trình duyệt thật)
         env:
           MYSQLHOST: ${{ secrets.MYSQLHOST }}
           MYSQLUSER: ${{ secrets.MYSQLUSER }}
@@ -27,5 +28,5 @@ jobs:
           MYSQLDATABASE: ${{ secrets.MYSQLDATABASE }}
           MYSQLPORT: ${{ secrets.MYSQLPORT }}
         run: |
-          python bds.py
+          xvfb-run -a python bds.py 
           python importDBStaging.py
