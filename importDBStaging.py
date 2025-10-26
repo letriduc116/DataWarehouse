@@ -29,12 +29,22 @@ print(f" Đang đọc file mới nhất: {csv_path}")
 
 
 # ==== CẤU HÌNH DATABASE ====
+# db_config = {
+#     "host": "localhost",
+#     "user": "root",
+#     "password": "",
+#     "database": "staging"
+# }
+
 db_config = {
-    "host": "localhost",
-    "user": "root",
-    "password": "",
-    "database": "staging"
+    "host": os.getenv("MYSQLHOST"),
+    "user": os.getenv("MYSQLUSER"),
+    "password": os.getenv("MYSQLPASSWORD"),
+    "database": os.getenv("MYSQLDATABASE"),
+    "port": int(os.getenv("MYSQLPORT", 3306)),
 }
+print(" Đang kết nối tới MySQL:", db_config["host"])
+
 table_name = "batdongsan"
 
 df = pd.read_csv(csv_path)
