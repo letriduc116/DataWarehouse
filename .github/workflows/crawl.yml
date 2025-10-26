@@ -20,7 +20,14 @@ jobs:
           playwright install chromium
           sudo apt-get update
           sudo apt-get install -y xvfb 
-      - name: Test MySQL connection
+
+      - name:  Test MySQL connection
+        env:
+          MYSQLHOST: ${{ secrets.MYSQLHOST }}
+          MYSQLPORT: ${{ secrets.MYSQLPORT }}
+          MYSQLUSER: ${{ secrets.MYSQLUSER }}
+          MYSQLPASSWORD: ${{ secrets.MYSQLPASSWORD }}
+          MYSQLDATABASE: ${{ secrets.MYSQLDATABASE }}
         run: python test_mysql.py
 
       - name: Chạy script crawl + import (dùng Xvfb để giả lập trình duyệt thật)
@@ -30,7 +37,6 @@ jobs:
           MYSQLPASSWORD: ${{ secrets.MYSQLPASSWORD }}
           MYSQLDATABASE: ${{ secrets.MYSQLDATABASE }}
           MYSQLPORT: ${{ secrets.MYSQLPORT }}
-
         run: |
           xvfb-run -a python bds.py 
           python importDBStaging.py
