@@ -11,8 +11,21 @@ csv_files = glob.glob(os.path.join(folder_path, "bds_*.csv"))
 if not csv_files:
     raise FileNotFoundError(f"Không tìm thấy file CSV nào trong thư mục {folder_path}")
 
+# ==== TỰ ĐỘNG LẤY FILE CSV MỚI NHẤT ====
+# Nếu chạy trên GitHub (không có ổ G:), dùng thư mục hiện tại "."
+if os.path.exists(r"G:\crawl"):
+    folder_path = r"G:\crawl"     # khi chạy local Windows
+else:
+    folder_path = "."              # khi chạy trên GitHub / Linux
+
+csv_files = glob.glob(os.path.join(folder_path, "bds_*.csv"))
+
+if not csv_files:
+    raise FileNotFoundError(f"Không tìm thấy file CSV nào trong thư mục {os.path.abspath(folder_path)}")
+
 csv_path = max(csv_files, key=os.path.getctime)
-print(f"👉 Đang đọc file mới nhất: {csv_path}")
+print(f" Đang đọc file mới nhất: {csv_path}")
+
 
 # ==== CẤU HÌNH DATABASE ====
 db_config = {
